@@ -49,7 +49,7 @@ def crated_pdf(sigla, corporates, lists, data):
                 
         # === Footer ===
         cnv.setFont ( 'Work Sans - Bold' , 12 );
-        cnv.drawCentredString(text= razaoSocial[0][7] + ", " + data + ".",x=mm2p(210/2),y=mm2p(90));
+        cnv.drawCentredString(text="Diadema, " + data + ".",x=mm2p(210/2),y=mm2p(90));
         
         # === Empresa === 
         cnv.setFont ( 'Work Sans - Bold' , 10 ); 
@@ -96,6 +96,11 @@ def crated_pdf(sigla, corporates, lists, data):
         cnv.drawString(text="Telefone: +55 (11) 3382-8100",x=mm2p(10), y=mm2p(initY - 12));
         cnv.drawImage(image=logo_conecta, width=150, height=35,x=mm2p(150), y=mm2p(90-70));
         
+        describe = Paragraph("Atesto para os devidos fins, que as pessoas abaixo relacionadas participaram com bom aproveitamento do treinamento de 'Brigada de Incêndio - Prevenção e Combate a Incêndio e Primeiros Socorros', e estão aptas ao manuseio dos equipamentos de prevenção e combate a incêndio da edificação.");
+        describe.wrapOn(cnv, aW=580, aH=None);
+        describe.drawOn(cnv, x=10, y=mm2p((232)));
+        
+
         match razaoSocial[0][5]:
             case 'BA':
                 print('Unidade da Bahia: ' + sigla );
@@ -105,20 +110,21 @@ def crated_pdf(sigla, corporates, lists, data):
                 cnv.drawCentredString(x=mm2p(210/2), y=mm2p((297-35-5)), charSpace=2, text="ATESTADO DE BRIGADA");
                 
                 cnv.setFont ( 'Work Sans' , 14);
-                describe = Paragraph(
-                "A empresa Treinnar Serviços e Equipamentos Contra Incendio LTDA, CNPJ 02.837.835/0002-07, " + 
-                "Número de Registro CCR Nº 481/2024 , atesta para os devidos fins que as pessoas abaixo relacionadas participaram com bom aproveitamento do treinamento de "+
-                '"BRIGADA DE INCÊNDIO – NÍVEL I", referente à edificação localizada na ' +
-                str(razaoSocial[0][1]) + " - " + str(razaoSocial[0][4]) + " - "  + str(razaoSocial[0][5]) + " - " + str(razaoSocial[0][6]) +
-                " e estão aptas ao manuseio dos equipamentos de prevenção e combate a incêndio.");
+                # describe = Paragraph(
+                # "A empresa Treinnar Serviços e Equipamentos Contra Incendio LTDA, CNPJ 02.837.835/0002-07, " + 
+                # "Número de Registro CCR Nº 481/2024 , atesta para os devidos fins que as pessoas abaixo relacionadas participaram com bom aproveitamento do treinamento de "+
+                # '"BRIGADA DE INCÊNDIO – NÍVEL I", referente à edificação localizada na ' +
+                # str(razaoSocial[0][1]) + " - " + str(razaoSocial[0][4]) + " - "  + str(razaoSocial[0][5]) + " - " + str(razaoSocial[0][6]) +
+                # " e estão aptas ao manuseio dos equipamentos de prevenção e combate a incêndio.");
 
-                describe.wrapOn(cnv, aW=580, aH=None);
-                describe.drawOn(cnv, x=10, y=mm2p((232)));
+                # describe.wrapOn(cnv, aW=580, aH=None);
+                # describe.drawOn(cnv, x=10, y=mm2p((232)));
                 
                 cnv.setFont ( 'Work Sans' , size=10);
-                cnv.drawString(text="Nota 1: Conforme Tabela B.2, da IT 17/2016.", x=mm2p(10), y=mm2p(110));
-                cnv.drawString(text="Nota 2: Conforme item 5.9, da IT 05/2021.", x=mm2p(10), y=mm2p(105));
-                cnv.drawString(text="Nota 3: Conforme item 6.1.2.2, da IT 05/2021.", x=mm2p(10), y=mm2p(100));
+                cnv.drawString(text="Nota 1: Conforme Tabela B.2, da IT 17/2016.", x=mm2p(10), y=mm2p(115));
+                cnv.drawString(text="Nota 2: Conforme item 5.9, da IT 05/2021.", x=mm2p(10), y=mm2p(110));
+                cnv.drawString(text="Nota 3: Conforme item 6.1.2.2, da IT 05/2021.", x=mm2p(10), y=mm2p(105));
+                cnv.drawString(text="Registro CCR Nº 481/2024", x=mm2p(10), y=mm2p(100));
                 cnv.drawCentredString(text="Registro CCIBI n° 286/2024",x=mm2p(210/2),y=mm2p(90-38-4));
 
 
@@ -181,14 +187,14 @@ def crated_pdf(sigla, corporates, lists, data):
                 cnv.setFont ( 'Work Sans - Bold' , 16 );
                 cnv.drawCentredString(x=mm2p(210/2), y=mm2p((297-35-5)), charSpace=2, text="CERTIFICADO DE TREINAMENTO");
                 cnv.setFont ( 'Work Sans' , 14);
-                describe = Paragraph(
-                    'Certificamos para os devidos fins que os funcionários abaixo relacionados participaram com bom aproveitamento do treinamento de "Prevenção e Combate a Incêndio e Primeiros Socorros", na data ' +
-                    data + 
-                    ', conforme programa constante no verso, com 05 (cinco) horas aula, em atendimento as exigências da Resolução Técnica N° 014/BM-CCB/2009, sendo considerado(s) apto(s)'
-                );
+                # describe = Paragraph(
+                #     'Certificamos para os devidos fins que os funcionários abaixo relacionados participaram com bom aproveitamento do treinamento de "Prevenção e Combate a Incêndio e Primeiros Socorros", na data ' +
+                #     data + 
+                #     ', conforme programa constante no verso, com 05 (cinco) horas aula, em atendimento as exigências da Resolução Técnica N° 014/BM-CCB/2009, sendo considerado(s) apto(s)'
+                # );
 
-                describe.wrapOn(cnv, aW=580, aH=None);
-                describe.drawOn(cnv, x=10, y=mm2p((232)));
+                # describe.wrapOn(cnv, aW=580, aH=None);
+                # describe.drawOn(cnv, x=10, y=mm2p((232)));
                 
                 cnv.showPage();
                 # === VERSO ===
@@ -264,10 +270,7 @@ def crated_pdf(sigla, corporates, lists, data):
                 );
                 
                 # === Disseres ===
-                describe = Paragraph("Atesto para os devidos fins, que as pessoas abaixo relacionadas participaram com bom aproveitamento do treinamento de 'Brigada de Incêndio - Prevenção e Combate a Incêndio e Primeiros Socorros', e estão aptas ao manuseio dos equipamentos de prevenção e combate a incêndio da edificação.");
                 cnv.setFont ( 'Work Sans' , size=12 );
                 cnv.drawString(text="Conforme a tabela B.2 da IT 17.", x=mm2p(10), y=mm2p(100));
-                describe.wrapOn(cnv, aW=580, aH=None);
-                describe.drawOn(cnv, x=10, y=mm2p((232)));
         
         cnv.save()
